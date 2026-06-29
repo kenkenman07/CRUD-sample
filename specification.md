@@ -50,6 +50,12 @@ frontend/
     - routes(index.js) → db-client → db
     - db → db-client → routes(index.js)
 
+
+### エンドポイント
+- /task
+    - 返り値
+        - {id: number, title: string, status: "未着手" | "実行中" | "完了"}
+
 ### 技術スタック
 - フレームワーク
     - Express
