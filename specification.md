@@ -15,14 +15,22 @@
     - pages → modules → (apiClient) → backend
     - backend → (apiClient) → modules → pages
 
+### ページ
+#### ダッシュボードページ(DashboardPage.tsx)
+- todoの追加（削除）
+- プロジェクトの管理
+    - 未着手/実行中/完了
+
+
 ### ディレクトリ
 ```  
 frontend/  
 ├─ pages/  
-│  └─ Task.tsx
+│  └─ DashboardPage.tsx
 ├─ modules/  
-│ └─ task/  
-│    └─ task.repository.ts  
+│  └─ task/  
+│     └─ task.repository.ts  
+│
 └─ api/  
    └─ apiClient.ts
 ```
@@ -39,13 +47,30 @@ frontend/
 ### 概要
 - frontendから受け取ったデータをデータベースへ送信する
 - データフロー
-    - わからない
+    - routes(index.js) → db-client → db
+    - db → db-client → routes(index.js)
 
 ### 技術スタック
-- 開発ツール
-    - わからない
+- フレームワーク
+    - Express
 - DBライブラリ
-    - PostgreSQL
+    - pg
+- インフラ
+    - Docker Compose
+
+### ディレクトリ
+```
+backend/
+├── app.js # メインアプリケーション\
+├── routes/
+│ └── index.js # APIルーティング\
+├── app/
+│ ├── db/
+│ ├── db-config.js # DB接続設定
+│ └── db-client.js # CRUD操作
+│
+└── package.json
+```
 
 
 ## DB
@@ -54,3 +79,11 @@ frontend/
 ### 技術スタック
 - データベース
     - PostgreSQL
+- インフラ
+    - Docker Compoes
+
+### テーブル
+#### todos
+- id
+- title
+- status: "未着手" | "実行中" | "完了"
