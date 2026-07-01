@@ -7,7 +7,7 @@ const DashboardPage = () => {
             <button className="bg-black p-2 border rounded-lg">+追加</button>
           </div>
         </div>
-        <div className="flex my-5 mx-10 border rounded-lg h-180 shadow bg-black">
+        <div className="flex my-5 mx-10 border rounded-lg h-170 shadow bg-black">
           <div className="w-1/3 h-full">
             <div className="flex flex-col h-full p-2 gap-2">
               <div className="h-1/4 border rounded-lg bg-gray-500">
