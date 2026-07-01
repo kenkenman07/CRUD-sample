@@ -1,0 +1,22 @@
+services:
+
+  db:
+    image: postgres
+    restart: always
+    volumes:
+    - ./db/data:/var/lib/postgresql/data
+    environment:
+    POSTGRES_PASSWORD: example
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+    - 8080:8080
+
+  web-backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
