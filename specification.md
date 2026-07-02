@@ -52,9 +52,18 @@ frontend/
 
 
 ### エンドポイント
-- /task
+- GET /task
     - 返り値
         - {id: number, title: string, status: "未着手" | "実行中" | "完了"}
+- POST /task
+    - ボディ
+        - {title: string}
+- UPDATE /task/:id
+    - ボディ
+        - {id: number, status: "未着手" | "実行中" | "完了"}
+- DELETE /task/:id
+    - ボディ
+        - {id: number}
 
 ### 技術スタック
 - フレームワーク
