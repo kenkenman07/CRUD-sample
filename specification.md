@@ -52,18 +52,12 @@ frontend/
 
 
 ### エンドポイント
-- GET /task
-    - 返り値
-        - {id: number, title: string, status: "未着手" | "実行中" | "完了"}
-- POST /task
-    - ボディ
-        - {title: string}
-- UPDATE /task/:id
-    - ボディ
-        - {id: number, status: "未着手" | "実行中" | "完了"}
-- DELETE /task/:id
-    - ボディ
-        - {id: number}
+| メソッド | パス | 説明 |
+|---------|------|------|
+| GET | /tasks | タスク一覧を取得 |
+| POST | /tasks | タスクを追加 | 
+| PATCH | /tasks/:id | タスクの状態を更新 |
+| DELETE | /tasks/:id | タスクを削除 |
 
 ### 技術スタック
 - フレームワーク
