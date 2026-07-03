@@ -59,6 +59,39 @@ frontend/
 | PATCH | /tasks/:id | タスクの状態を更新 |
 | DELETE | /tasks/:id | タスクを削除 |
 
+### レスポンス
+#### GET
+```json
+[
+    {
+        "id": 1, "title": "task1", "status": "not_started"
+    },
+    {
+        "id": 2, "title": "task2", "status": "not_started"
+    },
+    ...
+]
+```
+#### POST
+```json
+{
+    "id": 1, "title": "task1", "status": "not_started"
+}
+```
+#### PATCH
+```json
+{
+    id: 1, title: "task1", status: "in_progress"
+}
+```
+#### DELETE
+```json
+{
+    "delete: complete"
+}
+```
+
+
 ### 技術スタック
 - フレームワーク
     - Express
