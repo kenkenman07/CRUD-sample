@@ -1,0 +1,98 @@
+openapi: "3.0.3"
+
+info:
+  title: "Tasks API"
+  version: "1.0.0"
+
+servers:
+  - url: http://localhost:3001
+    description: Development server
+
+paths:
+  "/tasks":
+    get:
+      summary: "全てのタスクを表示"
+      responses:
+        "200":
+          description: "成功"
+          content:
+            application/json:
+              schema:
+                type: array
+                example: 
+                  - id: 1
+                    title: task1
+                    status: "not_started"
+                  - id: 2
+                    title: task2
+                    status: "not_started"
+    post:
+      summary: "タスクの生成"
+      requestBody: 
+        description: user to create
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              title: newTask
+      responses:
+        "201":
+          description: "成功"
+          content:
+            application/json:
+              schema:
+                type: object
+                example: 
+                  id: 3
+                  title: newTask
+                  status: "not_started"
+  "/tasks/{id}": 
+    patch:
+      summary: "タスクの状態を更新"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: 
+            type: integer
+          example: 1
+      requestBody: 
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example:
+              status: in_progress
+      responses:
+        "200":
+          description: "成功"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                status:
+                  type: string
+                  enum: ["not_started", "in_progress", "completed"]
+                example: 
+                  id: 1
+                  title: task1
+                  status: "in_progress"
+    delete:
+      summary: "タスクの削除"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: 
+            type: number
+          example: "1"
+      responses:
+        "200":
+          description: "成功"
+          
+
+                  
