@@ -1,4 +1,17 @@
+import { useEffect, useState } from "react";
+import apiClient, { type Task } from "../api/apiClient";
+
 const DashboardPage = () => {
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  const getTasks = async () => {
+    setTasks(await apiClient.getAllTasks());
+  };
+
+  useEffect(() => {
+    getTasks();
+  }, []);
+
   return (
     <>
       <div className="bg-gray-700 h-screen text-gray-200 font-medium">
@@ -12,9 +25,9 @@ const DashboardPage = () => {
             <div className="flex flex-col h-full p-2 gap-2">
               <div className="h-1/4 border rounded-lg bg-gray-500">
                 <div className="px-3">
-                  <div className="py-5 text-xl">Title</div>
+                  <div className="py-5 text-xl">{tasks[0]?.title}</div>
                   <div className="flex">
-                    <div>status</div>
+                    <div>{tasks[0]?.status}</div>
                     <div className="pl-55">更新</div>
                   </div>
                   <div>削除</div>
