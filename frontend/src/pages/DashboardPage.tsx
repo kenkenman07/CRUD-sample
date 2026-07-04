@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClient, { type Task } from "../api/apiClient";
+import TaskWrapper from "../components/TaskWrapper";
 
 const DashboardPage = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -20,41 +21,7 @@ const DashboardPage = () => {
             <button className="bg-black p-2 border rounded-lg">+追加</button>
           </div>
         </div>
-        <div className="flex my-5 mx-10 border rounded-lg h-170 shadow bg-black">
-          <div className="w-1/3 h-full">
-            <div className="flex flex-col h-full p-2 gap-2">
-              <div className="h-1/4 border rounded-lg bg-gray-500">
-                <div className="px-3">
-                  <div className="py-5 text-xl">{tasks[0]?.title}</div>
-                  <div className="flex">
-                    <div>{tasks[0]?.status}</div>
-                    <div className="pl-55">更新</div>
-                  </div>
-                  <div>削除</div>
-                </div>
-              </div>
-              <div className="h-1/4 border rounded-lg bg-gray-500">task1</div>
-              <div className="h-1/4 border rounded-lg bg-gray-500">task1</div>
-              <div className="h-1/4 border rounded-lg bg-gray-500">task1</div>
-            </div>
-          </div>
-          <div className="w-1/3 h-full">
-            <div className="flex flex-col h-full p-2 gap-2">
-              <div className="h-1/4 border rounded-lg bg-gray-500">task1</div>
-              <div className="h-1/4 border rounded-lg bg-gray-500">task1</div>
-              <div className="h-1/4 border rounded-lg bg-gray-500">task1</div>
-              <div className="h-1/4 border rounded-lg bg-gray-500">task1</div>
-            </div>
-          </div>
-          <div className="w-1/3 h-full">
-            <div className="flex flex-col h-full p-2 gap-2">
-              <div className="h-1/4 border rounded-lg bg-gray-500">task1</div>
-              <div className="h-1/4 border rounded-lg bg-gray-500">task1</div>
-              <div className="h-1/4 border rounded-lg bg-gray-500">task1</div>
-              <div className="h-1/4 border rounded-lg bg-gray-500">task1</div>
-            </div>
-          </div>
-        </div>
+        <TaskWrapper tasks={tasks} />
       </div>
     </>
   );
