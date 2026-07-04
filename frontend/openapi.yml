@@ -25,6 +25,36 @@ paths:
                     status: "not_started"
                   - id: 2
                     title: task2
+                    status: "completed"
+                  - id: 3
+                    title: task3
+                    status: "not_started"
+                  - id: 4
+                    title: task4
+                    status: "not_started"
+                  - id: 5
+                    title: task5
+                    status: "not_started"
+                  - id: 6
+                    title: task6
+                    status: "not_started"
+                  - id: 7
+                    title: task7
+                    status: "not_started"
+                  - id: 8
+                    title: task8
+                    status: "in_progress"
+                  - id: 9
+                    title: task9
+                    status: "not_started"
+                  - id: 10
+                    title: task10
+                    status: "completed"
+                  - id: 11
+                    title: task11
+                    status: "not_started"
+                  - id: 12
+                    title: task12
                     status: "not_started"
     post:
       summary: "タスクの生成"
