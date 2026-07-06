@@ -1,4 +1,5 @@
 import type { Task } from "../api/apiClient";
+import StatusLabel from "./StatusLabel";
 
 type TaskWrapperProps = {
   tasks: Task[];
@@ -25,7 +26,7 @@ const TaskWrapper = ({ tasks }: TaskWrapperProps) => {
                     <div className="px-3">
                       <div className="py-5 text-xl">{task.title}</div>
                       <div className="flex">
-                        <div>{task.status}</div>
+                        <StatusLabel status={task.status} />
                         <div className="pl-55">更新</div>
                       </div>
                       <div>削除</div>
