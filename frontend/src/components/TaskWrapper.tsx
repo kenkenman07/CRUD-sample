@@ -16,20 +16,19 @@ const TaskWrapper = ({ tasks }: TaskWrapperProps) => {
       {dividedTask.map((dividedTask, index) => {
         return (
           <div key={index} className="w-1/3 h-full">
-            <div className="flex flex-col h-full p-2 gap-2">
+            <div className="flex flex-col h-full">
               {dividedTask.map((task) => {
                 return (
-                  <div
-                    key={task.id}
-                    className="h-1/4 border rounded-lg bg-gray-500"
-                  >
-                    <div className="px-3">
-                      <div className="py-5 text-xl">{task.title}</div>
-                      <div className="flex">
-                        <StatusLabel status={task.status} />
-                        <div className="pl-55">更新</div>
+                  <div key={task.id} className="h-1/4 p-2">
+                    <div className="border rounded-lg bg-gray-500 h-full">
+                      <div className="px-3">
+                        <div className="py-5 text-xl">{task.title}</div>
+                        <div className="flex">
+                          <StatusLabel status={task.status} />
+                          <div className="pl-55">更新</div>
+                        </div>
+                        <div>削除</div>
                       </div>
-                      <div>削除</div>
                     </div>
                   </div>
                 );

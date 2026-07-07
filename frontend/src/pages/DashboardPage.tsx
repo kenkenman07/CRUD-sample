@@ -12,7 +12,10 @@ const DashboardPage = () => {
     setTasks(await apiClient.getAllTasks());
   };
 
-  const createTask = async () => {};
+  const createTask = async () => {
+    const newTask = await apiClient.createTask(title);
+    setTasks((prevTask) => [...prevTask, newTask]);
+  };
 
   useEffect(() => {
     getTasks();
